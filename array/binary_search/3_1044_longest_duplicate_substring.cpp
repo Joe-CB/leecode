@@ -58,8 +58,10 @@ public:
         std::set<std::string> duplicated_strs;
         for(int i = 0; i < s.length() - k; i++){
             auto iter = duplicated_strs.find(s.substr(i, k));
-            if (iter == duplicated_strs.end()){
+            if (iter != duplicated_strs.end()){
                 return s.substr(i, k);
+            } else{
+                duplicated_strs.insert(std::pair<std::string, int>(s.substr(i, k), 1));
             }
         }
         return "";
@@ -68,7 +70,7 @@ public:
     string longestDupSubstring(string s) {
         int left = 0;
         int right = s.length() - 1;
-        int mid = left + (left + right) / 2;
+        int mid = left + (right - left) / 2;
         std::string duplicates;
         int length = 0;
         while (left > right){
