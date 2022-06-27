@@ -50,6 +50,7 @@
 
 #include <set>
 #include <string>
+using namespace std;
 
 
 class Solution {
@@ -61,7 +62,7 @@ public:
             if (iter != duplicated_strs.end()){
                 return s.substr(i, k);
             } else{
-                duplicated_strs.insert(std::pair<std::string, int>(s.substr(i, k), 1));
+                duplicated_strs.insert(s.substr(i, k));
             }
         }
         return "";
