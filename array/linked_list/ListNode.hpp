@@ -28,4 +28,10 @@ public:
         }
         std::cout <<"nullptr" <<std::endl;
     }
+    static ListNode *last(ListNode *header){
+        while(header && header->next){
+            header = header->next;
+        }
+        return header;
+    }
 };
