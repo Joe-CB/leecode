@@ -10,4 +10,10 @@
 
 
 
-
+例题：
+Valid Parentheses (20)
+Next Greater Element I 496
+Next Greater Element II 503
+Decode String 394
+Exclusive time of functions 636
+Largest Rectangle in Histogram 84
