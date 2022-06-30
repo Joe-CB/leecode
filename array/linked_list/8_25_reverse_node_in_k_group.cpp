@@ -10,6 +10,59 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
+
+
+class Solution2{
+public:
+    ListNode* reverseKGroup(ListNode* head, int k) {
+        if (!head || !head->next){
+            return head;
+        }
+
+        ListNode fake_node;
+        ListNode *fake_header = &fake_node;
+        fake_header->next = head;
+
+        ListNode *fast, *slow;
+        fast = head;
+        slow = fake_header;
+
+        while (fast){
+            // move fast forward k times+
+            int moved_step = 0;
+            while (moved_step < k){
+                if (fast){
+                    fast = fast->next;
+                    moved_step++;
+                } else{
+                    break;
+                }
+            }
+            if (moved_step != k){
+                break;;// undo
+            } else {
+                ListNode* group_head = reverseKGroup(slow->next, fast);
+                slow->next->next = fast;
+                ListNode *group_tail = slow->next;
+                slow->next = group_head;
+                slow = group_tail;
+            }
+        }
+        return fake_header->next;
+    }
+
+    ListNode* reverseKGroup(ListNode *head, ListNode *tail){
+        if (head->next != tail){
+            auto group_head = reverseKGroup(head->next, tail);
+            head->next->next = head;
+            head->next = nullptr;
+            return group_head;
+        } else {
+            return head;
+        }
+    }
+};
+
 class Solution {
 public:
     ListNode* reverseKGroup(ListNode* head, int k) {
@@ -67,8 +120,8 @@ int main(){
     // vector<int> arr = {1, 2};
     auto header = ListNode::construtLinkedList(arr);
     ListNode::print(header);
-    Solution s;
-    ListNode* reversed = s.reverseKGroup(header, 3);
+    Solution2 s;
+    ListNode* reversed = s.reverseKGroup(header, 2);
     ListNode::print(reversed);
     return 0;
 }

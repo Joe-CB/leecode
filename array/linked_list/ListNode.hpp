@@ -10,7 +10,7 @@ class ListNode {
 public:
     int val;
     ListNode *next;
-    ListNode(int x) : val(x), next(NULL) {}
+    ListNode(int x=0) : val(x), next(NULL) {}
     ListNode(int x, ListNode* next_) : val(x), next(next_) {}
 
     static ListNode* construtLinkedList(const vector<int> &arr){
