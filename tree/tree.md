@@ -97,3 +97,12 @@ Example:
 
 
 
+# Example of dfs
+
+98. Validate Binary Search Tree
+110. Balanced Binary Tree
+113. Path Sum II
+236. Lowest Common Ancestor of a Binary Tree  (令人头疼)
+450. Delete Node in a BST
+508. Most Frequent Subtree Sum
+
