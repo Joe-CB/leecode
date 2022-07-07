@@ -19,6 +19,24 @@ public:
     }
 };
 
+class Solution2 {
+public:
+    int sumNumbers(TreeNode* root) {
+        return dfs(root, 0);
+    }
+
+    int dfs(TreeNode *node, int sum){
+        if(!node)
+            return 0;
+        if (!node->left && !node->right){
+            return sum*10+node->val;
+        }
+        sum = sum * 10 + node->val;
+        int left_sum = dfs(node->left, sum);
+        int right_sum = dfs(node->right, sum);
+        return left_sum + right_sum;
+    }
+};
 
 
 int main(){
