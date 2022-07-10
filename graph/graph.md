@@ -12,7 +12,9 @@
 2. Adjacency List
     实现方式1： `Map<T, List<T>>`
     实现方式2： `List<T>[n]`   。因为用的数组，所以首先需要知道有几个Node
-
+3. unordered_map
+    - unordered_map<string, int> nodes;
+    - vector<vector<int>> edges;
 
 
 # BFS 解题模板
@@ -99,6 +101,23 @@ All the words in wordList are unique.
 
 
 **思考**
-没有看懂题意，原来要求最后一个单词必须与endWord相同，而第一个单词不需要相同，可以是有一个字符的differ
-主要还是英语不过关。
+1. 英语不过关。
+没有看懂题意，原来要求最后一个单词必须与endWord相同，即除了startWord, 其他的string都要在lsit里面。
+2. 没有先构件Graph
+构建Graph有什么优点？
+- 每次找下一个连接点的时候不用遍历整个数组了
+
+
+TODO: 构建Graph后效率降低了，为什么呢？
+详细见127 Solution and Solution2.
+
+
+## 其他题目
+934. Shortest Bridge
+310. Minimun Height Trees
+1091. Shortest Path in Binary Matrix
+994. Rotting Oranges
+863. All Nodes Distance K in Binary Tree
+317. Shortest Distance fron All Buildings
+
 
